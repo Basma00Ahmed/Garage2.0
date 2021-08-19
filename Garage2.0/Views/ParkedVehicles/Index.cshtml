@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Garage2._0.Models.ParkedVehicle>
+﻿@model IEnumerable<IndexViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,22 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.vehicleType)
+                @Html.DisplayNameFor(model => model.VehicleType)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.RegNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Make)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmountOfWheels)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ArrivalTime)
@@ -42,22 +30,10 @@
 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.vehicleType)
+                @Html.DisplayFor(modelItem => item.VehicleType)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RegNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Make)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmountOfWheels)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ArrivalTime)

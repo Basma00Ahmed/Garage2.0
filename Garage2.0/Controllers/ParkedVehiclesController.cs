@@ -1,5 +1,6 @@
 ﻿using Garage2._0.Data;
 using Garage2._0.Models.Entities;
+using Garage2._0.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -20,7 +21,14 @@ namespace Garage2._0.Controllers
         // GET: ParkedVehicles
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ParkedVehicle.ToListAsync());
+            var model = _context.ParkedVehicle.Select(vehicle => new IndexViewModel
+            {
+                Id = vehicle.Id,
+                VehicleType = vehicle.vehicleType,
+                RegNo = vehicle.RegNo,
+                ArrivalTime = vehicle.ArrivalTime
+            });
+            return View(await model.ToListAsync());
         }
 
         // GET: ParkedVehicles/Details/5
