@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Garage2._0.Models;
+using Garage2._0.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using Garage2._0.Models;
+using System;
+
 
 namespace Garage2._0.Data
 {
@@ -15,7 +14,7 @@ namespace Garage2._0.Data
 
         }
 
-        public DbSet<Garage2._0.Models.ParkedVehicle> ParkedVehicle { get; set; }
+        public DbSet<Garage2._0.Models.Entities.ParkedVehicle> ParkedVehicle { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
