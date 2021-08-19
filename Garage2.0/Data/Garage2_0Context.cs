@@ -21,11 +21,11 @@ namespace Garage2._0.Data
 
             modelBuilder.Entity<ParkedVehicle>()
                .HasData(
-                   new ParkedVehicle { Id = 1, vehicleType = VehicleType.Car, RegNo ="ABC123" , Color="Red", Make="BMW" , Model="C5", AmountOfWheels=4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 2, vehicleType = VehicleType.Car, RegNo = "EFG124", Color = "White", Make = "Volvo", Model = "Z7", AmountOfWheels = 4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 3, vehicleType = VehicleType.Car, RegNo = "GHY125", Color = "Black", Make = "Audi", Model = "M09", AmountOfWheels = 4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 4, vehicleType = VehicleType.Car, RegNo = "LKJ126", Color = "Red", Make = "BMW", Model = "FF5", AmountOfWheels = 4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 5, vehicleType = VehicleType.Bus, RegNo = "OPR127", Color = "Yellow", Make = "BMW", Model = "C95", AmountOfWheels = 12, ArrivalTime = DateTime.Now}
+                   new ParkedVehicle { Id = 1, VehicleType = VehicleType.Car, RegNo ="ABC123" , Color="Red", Make="BMW" , Model="C5", NoOfWheels=4, ArrivalTime = DateTime.Now },
+                   new ParkedVehicle { Id = 2, VehicleType = VehicleType.Car, RegNo = "EFG124", Color = "White", Make = "Volvo", Model = "Z7", NoOfWheels = 4, ArrivalTime = DateTime.Now },
+                   new ParkedVehicle { Id = 3, VehicleType = VehicleType.Car, RegNo = "GHY125", Color = "Black", Make = "Audi", Model = "M09", NoOfWheels = 4, ArrivalTime = DateTime.Now },
+                   new ParkedVehicle { Id = 4, VehicleType = VehicleType.Car, RegNo = "LKJ126", Color = "Red", Make = "BMW", Model = "FF5", NoOfWheels = 4, ArrivalTime = DateTime.Now },
+                   new ParkedVehicle { Id = 5, VehicleType = VehicleType.Bus, RegNo = "OPR127", Color = "Yellow", Make = "BMW", Model = "C95", NoOfWheels = 12, ArrivalTime = DateTime.Now}
                );
         }
     }

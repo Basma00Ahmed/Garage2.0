@@ -24,7 +24,7 @@ namespace Garage2._0.Controllers
             var model = _context.ParkedVehicle.Select(vehicle => new IndexViewModel
             {
                 Id = vehicle.Id,
-                VehicleType = vehicle.vehicleType,
+                VehicleType = vehicle.VehicleType,
                 RegNo = vehicle.RegNo,
                 ArrivalTime = vehicle.ArrivalTime
             });

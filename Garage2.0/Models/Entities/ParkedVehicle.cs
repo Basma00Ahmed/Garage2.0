@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace Garage2._0.Models.Entities
@@ -17,10 +14,11 @@ namespace Garage2._0.Models.Entities
         public int Id { get; set; }
 
         [Required]
-     
-        public VehicleType vehicleType { get; set; }
+        [Display(Name = "Vehicle type")]
+        public VehicleType VehicleType { get; set; }
 
         [Required]
+        [Display(Name = "Registration No")]
         public string RegNo { get; set; }
 
         [Range (1,30)]
@@ -34,8 +32,10 @@ namespace Garage2._0.Models.Entities
         public string Model { get; set; }
 
         [Range(1, 12)]
-        public int AmountOfWheels { get; set; }
+        [Display(Name = "Number of wheels")]
+        public int NoOfWheels { get; set; }
 
+        [Display(Name = "Arrival time")]
         public DateTime ArrivalTime  { get; set; }
 
     }

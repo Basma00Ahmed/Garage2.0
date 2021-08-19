@@ -4,14 +4,16 @@ using Garage2._0.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Garage2._0.Migrations
 {
     [DbContext(typeof(Garage2_0Context))]
-    partial class Garage2_0ContextModelSnapshot : ModelSnapshot
+    [Migration("20210819145045_changedFieldVehicleType")]
+    partial class changedFieldVehicleType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,6 +28,9 @@ namespace Garage2._0.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AmountOfWheels")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("ArrivalTime")
                         .HasColumnType("datetime2");
 
@@ -38,9 +43,6 @@ namespace Garage2._0.Migrations
 
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NoOfWheels")
-                        .HasColumnType("int");
 
                     b.Property<string>("RegNo")
                         .IsRequired()
@@ -57,55 +59,55 @@ namespace Garage2._0.Migrations
                         new
                         {
                             Id = 1,
-                            ArrivalTime = new DateTime(2021, 8, 19, 17, 13, 58, 548, DateTimeKind.Local).AddTicks(5991),
+                            AmountOfWheels = 4,
+                            ArrivalTime = new DateTime(2021, 8, 19, 16, 50, 45, 69, DateTimeKind.Local).AddTicks(2632),
                             Color = "Red",
                             Make = "BMW",
                             Model = "C5",
-                            NoOfWheels = 4,
                             RegNo = "ABC123",
                             VehicleType = 0
                         },
                         new
                         {
                             Id = 2,
-                            ArrivalTime = new DateTime(2021, 8, 19, 17, 13, 58, 553, DateTimeKind.Local).AddTicks(5807),
+                            AmountOfWheels = 4,
+                            ArrivalTime = new DateTime(2021, 8, 19, 16, 50, 45, 73, DateTimeKind.Local).AddTicks(7775),
                             Color = "White",
                             Make = "Volvo",
                             Model = "Z7",
-                            NoOfWheels = 4,
                             RegNo = "EFG124",
                             VehicleType = 0
                         },
                         new
                         {
                             Id = 3,
-                            ArrivalTime = new DateTime(2021, 8, 19, 17, 13, 58, 553, DateTimeKind.Local).AddTicks(5875),
+                            AmountOfWheels = 4,
+                            ArrivalTime = new DateTime(2021, 8, 19, 16, 50, 45, 73, DateTimeKind.Local).AddTicks(7821),
                             Color = "Black",
                             Make = "Audi",
                             Model = "M09",
-                            NoOfWheels = 4,
                             RegNo = "GHY125",
                             VehicleType = 0
                         },
                         new
                         {
                             Id = 4,
-                            ArrivalTime = new DateTime(2021, 8, 19, 17, 13, 58, 553, DateTimeKind.Local).AddTicks(5883),
+                            AmountOfWheels = 4,
+                            ArrivalTime = new DateTime(2021, 8, 19, 16, 50, 45, 73, DateTimeKind.Local).AddTicks(7827),
                             Color = "Red",
                             Make = "BMW",
                             Model = "FF5",
-                            NoOfWheels = 4,
                             RegNo = "LKJ126",
                             VehicleType = 0
                         },
                         new
                         {
                             Id = 5,
-                            ArrivalTime = new DateTime(2021, 8, 19, 17, 13, 58, 553, DateTimeKind.Local).AddTicks(5889),
+                            AmountOfWheels = 12,
+                            ArrivalTime = new DateTime(2021, 8, 19, 16, 50, 45, 73, DateTimeKind.Local).AddTicks(7832),
                             Color = "Yellow",
                             Make = "BMW",
                             Model = "C95",
-                            NoOfWheels = 12,
                             RegNo = "OPR127",
                             VehicleType = 1
                         });
