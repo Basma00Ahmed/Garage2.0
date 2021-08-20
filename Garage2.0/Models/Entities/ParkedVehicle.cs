@@ -18,17 +18,18 @@ namespace Garage2._0.Models.Entities
         public VehicleType VehicleType { get; set; }
 
         [Required]
+        [MaxLength(10)]
         [Display(Name = "Registration No")]
         public string RegNo { get; set; }
 
-        [Range (1,30)]
+        [MaxLength (10)]
         public string Color { get; set; }
 
         [Required]
-        [Range(1, 30)]
+        [MaxLength(10)]
         public string Make { get; set; }
 
-        [Range(1, 30)]
+        [MaxLength(10)]
         public string Model { get; set; }
 
         [Range(1, 12)]
