@@ -6,44 +6,71 @@
 
 <h1>Welcome to G1 garage</h1>
 
-<p>
-    <a asp-action="Create">Check In</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.VehicleType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArrivalTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
 
+@using (Html.BeginForm(controllerName: "ParkedVehicles", actionName: "index", method: FormMethod.Get))
+{
 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArrivalTime)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Update</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Check out</a>
-            </td>
-        </tr>
+    <div class=" row input-group mb-3">
+        <div class="col-md-5">
+            <input type="text" name="Regnum" class="form-control" placeholder="Search on Registration No" aria-label="Recipient's username" aria-describedby="button-addon2">
+        </div>
+        <div class="col-md-5">
+            @Html.DropDownList("drpVehicleTypes", new SelectList(ViewBag.VehicleTypes, "Value", "Text"), "Select Vehicle Type", new { @class = "form-control" })
+        </div>
+        <div class="col-md-2 input-group-append">
+            <button type="submit" class="btn btn-success" id="button-addon2">Search</button>
+        </div>
+    </div>
 }
-    </tbody>
-</table>
+
+<div class=" row input-group ">
+    <div class="col-md-12">
+
+        <table data-toggle="table" 
+       data-classes="table table-hover table-condensed"
+       data-striped="true"
+       data-sort-name="RegNo"
+       data-sort-order="desc">
+            <thead >
+                <tr>
+                    <th class="border-0  col-xs-1" data-field="VehicleType" data-sortable="true">
+                        @Html.DisplayNameFor(model => model.VehicleType)
+                    </th>
+                    <th class="border-0 col-xs-1" data-field="RegNo" data-sortable="true">
+                        @Html.DisplayNameFor(model => model.RegNo)
+                    </th>
+                    <th class="border-0 col-xs-1" data-field="ArrivalTime" data-sortable="true">
+                        @Html.DisplayNameFor(model => model.ArrivalTime)
+                    </th>
+                    <th class="float-lg-left border-0 col-8">
+                        <a class="btn btn-primary float-lg-right col-lg-12 text-center" asp-action="Create">Check In</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VehicleType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ArrivalTime)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Update</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Check out</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@if (Model.Count() == 0)
+{
+    <p class="text-center">No Result</p>}

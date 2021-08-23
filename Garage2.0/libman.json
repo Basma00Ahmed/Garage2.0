@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/"
+    },
+    {
+      "library": "tablesort@5.2.1",
+      "destination": "wwwroot/lib/tablesort/"
+    },
+    {
+      "library": "Sortable@1.14.0",
+      "destination": "wwwroot/lib/Sortable/"
+    },
+    {
+      "library": "bootstrap-table@1.18.3",
+      "destination": "wwwroot/lib/bootstrap/bootstrap-table/"
+    }
+  ]
+}

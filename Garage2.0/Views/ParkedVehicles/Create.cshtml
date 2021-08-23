@@ -10,11 +10,14 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VehicleType" class="control-label"></label>
-                <select asp-for="VehicleType" class="form-control"></select>
+                <select asp-for="VehicleType"  class="form-control" asp-items="Html.GetEnumSelectList<VehicleType>()">
+                    <option selected="selected" value="">Please select</option>
+                </select>
                 <span asp-validation-for="VehicleType" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -59,5 +62,6 @@
 </div>
 
 @section Scripts {
- @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }
