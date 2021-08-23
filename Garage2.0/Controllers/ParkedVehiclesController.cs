@@ -3,7 +3,6 @@ using Garage2._0.Models.Entities;
 using Garage2._0.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -54,22 +53,44 @@ namespace Garage2._0.Controllers
         {
             return View();
         }
-
+      
         // POST: ParkedVehicles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,vehicleType,RegNo,Color,Make,Model,AmountOfWheels,ArrivalTime")] ParkedVehicle parkedVehicle)
+        public async Task<IActionResult> Create([Bind("Id,VehicleType,RegNo,Color,Make,Model,NoOfWheels,ArrivalTime")] ParkedVehicle parkedVehicle)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(parkedVehicle);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                bool regNoExists = _context.ParkedVehicle.Any(v => v.RegNo == parkedVehicle.RegNo);
+                if (!regNoExists)
+                {
+                    parkedVehicle.RegNo = parkedVehicle.RegNo.ToUpper();
+                    parkedVehicle.ArrivalTime = System.DateTime.Now;
+                    _context.Add(parkedVehicle);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ModelState.AddModelError("RegNo", "A vehicle with this register Number is already in the garage.");    
+                }
             }
             return View(parkedVehicle);
         }
+
+        //Validering av regnummer på klient sida
+        public IActionResult VerifyRegNo(string RegNo)
+        {
+            bool regNoExists = _context.ParkedVehicle.Any(v => v.RegNo == RegNo);
+            if (regNoExists)
+            {
+                return Json($"A vehicle with register Number {RegNo} is already in the garage.");
+            }
+            return Json(true);
+        }
+       
 
         // GET: ParkedVehicles/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -92,7 +113,7 @@ namespace Garage2._0.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,vehicleType,RegNo,Color,Make,Model,AmountOfWheels,ArrivalTime")] ParkedVehicle parkedVehicle)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,VehicleType,RegNo,Color,Make,Model,NoOfWheels,ArrivalTime")] ParkedVehicle parkedVehicle)
         {
             if (id != parkedVehicle.Id)
             {
