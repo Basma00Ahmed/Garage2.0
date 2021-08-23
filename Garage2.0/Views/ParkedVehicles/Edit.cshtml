@@ -42,10 +42,10 @@
                 <label asp-for="NoOfWheels" class="control-label"></label>
                 <input asp-for="NoOfWheels" class="form-control" />
                 <span asp-validation-for="NoOfWheels" class="text-danger"></span>
-            </div>               
+            </div>    
             <div class="form-group">
                 <label asp-for="ArrivalTime" class="control-label"></label>
-                <input asp-for="ArrivalTime" disabled asp-format="{0:yyyy-MM-dd HH:mm:ss}" class="form-control" />
+                <input asp-for="ArrivalTime"  readonly asp-format="{0:yyyy-MM-dd HH:mm:ss}" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
