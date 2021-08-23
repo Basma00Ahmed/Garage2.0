@@ -1,0 +1,52 @@
+﻿@model ReceiptViewModel
+
+<h1>Receipt View</h1>
+
+<div class="row justify-content-center">
+    <div class="col-7 col-md-6 col-lg-4 receipt-content border">
+        <div class="text-center">
+            <img src="~/images/parking-ticket-icon.png" alt="parking ticket" />
+        </div>
+        <div class="text-center border-y-dotted pt-3">
+            <p class="lead">PARKING RECEIPT</p>
+        </div>
+        <div class="text-center pt-3">
+            <small>@Html.DisplayNameFor(model => model.RegNo)</small>
+            <h3 class="receipt-headings">@Html.DisplayFor(model => model.RegNo)</h3>
+        </div>
+
+        <div class="row">
+            <div class="col col-4">
+                <p>@Html.DisplayNameFor(model => model.ArrivalTime)</p>
+            </div><!--end col-->
+            <div class="col col-8">
+                <p class="text-right">@Html.DisplayFor(model => model.ArrivalTime)</p>
+            </div><!--end col-->
+        </div><!--end row-->
+        <div class="row">
+            <div class="col col-4">
+                <p>@Html.DisplayNameFor(model => model.EndTime)</p>
+            </div><!--end col-->
+            <div class="col col-8">
+                <p class="text-right">@Html.DisplayFor(model => model.EndTime)</p>
+            </div><!--end col-->
+        </div><!--end row-->
+        <div class="row">
+            <div class="col col-5">
+                <p>@Html.DisplayNameFor(model => model.TotalTime)</p>
+            </div><!--end col-->
+            <div class="col col-7">
+                <p class="text-right">@Html.DisplayFor(model => model.TotalTime)</p>
+            </div><!--end col-->
+        </div><!--end row-->
+
+        <div class="text-center">
+            <small>@Html.DisplayNameFor(model => model.TotalCost)</small>
+            <h5 class="receipt-headings">@Html.DisplayFor(model => model.TotalCost) SEK</h5>
+        </div>
+
+        <div class="text-center border-t-dotted pt-3">
+            <p><small>Thank you and drive safely!</small></p>
+        </div>
+    </div><!--end col-->
+</div><!--end row-->
