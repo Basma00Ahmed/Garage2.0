@@ -3,21 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Garage2._0</RootNamespace>
-    <UserSecretsId>d90a07d4-37c9-4f74-ad26-13610b1ced82</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="wwwroot\lib\datatables\**" />
-    <Content Remove="wwwroot\lib\datatables\**" />
-    <EmbeddedResource Remove="wwwroot\lib\datatables\**" />
-    <None Remove="wwwroot\lib\datatables\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\img\asc.png" />
-    <None Include="wwwroot\img\bg.png" />
-    <None Include="wwwroot\img\desc.png" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.8" />

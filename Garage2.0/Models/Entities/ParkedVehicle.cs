@@ -13,25 +13,25 @@ namespace Garage2._0.Models.Entities
         } 
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Pleasee select vehicle type")]
+        [Required]
         [Display(Name = "Vehicle type")]
         public VehicleType VehicleType { get; set; }
 
-        [Required(ErrorMessage = "Pleasee enter Registration No")]
+        [Required]
         [Display(Name = "Registration No")]
         public string RegNo { get; set; }
 
-        [MaxLength(30,ErrorMessage = "Color Max lenght 30")]
+        [Range (1,30)]
         public string Color { get; set; }
 
-        [Required(ErrorMessage = "Pleasee enter vehicle Make")]
-        [MaxLength(30, ErrorMessage = "Make Max lenght 30")]
+        [Required]
+        [Range(1, 30)]
         public string Make { get; set; }
 
-        [MaxLength(30, ErrorMessage = "Model Max lenght 30")]
+        [Range(1, 30)]
         public string Model { get; set; }
 
-        [Range(0, 12,ErrorMessage = "Enter number between 0 to 12")]
+        [Range(1, 12)]
         [Display(Name = "Number of wheels")]
         public int NoOfWheels { get; set; }
 
