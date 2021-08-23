@@ -13,6 +13,7 @@ namespace Garage2._0.Models.Entities
         } 
         public int Id { get; set; }
 
+
         [Required]
         [Display(Name = "Vehicle type")]
         public VehicleType VehicleType { get; set; }
