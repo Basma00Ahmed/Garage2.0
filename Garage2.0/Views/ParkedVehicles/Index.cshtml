@@ -5,7 +5,15 @@
 }
 
 <h1>Welcome to G1 garage</h1>
+<br />
+<div class=" border-0 col-8">
+    <a class="btn btn-primary float-lg-right col-6 text-center" asp-action="Create">Check In Vehicle</a>
+    <br />
+</div>
+
 <form asp-controller="ParkedVehicles" asp-action="Index" method="Get">
+    <br />
+    <br />
     <div class=" row input-group mb-3">
         <div class="col-md-5">
             <input type="text" name="Regnum" class="form-control" placeholder="Search on Registration No" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -20,15 +28,14 @@
         </div>
     </div>
 </form>
-
+<br />
 <div class=" row input-group ">
     <div class="container-fluid col-md-12">
-
         <table data-toggle="table"
                data-classes="table table-hover table-condensed"
                data-striped="true"
                data-sort-name="RegNo"
-               data-sort-order="desc">
+               data-sort-order="desc" id="TbVehicles">
             <thead>
                 <tr>
                     <th class="border-0  col-xs-1" data-field="VehicleType" data-sortable="true">
@@ -41,7 +48,6 @@
                         @Html.DisplayNameFor(model => model.ArrivalTime)
                     </th>
                     <th class="float-lg-left border-0 col-8">
-                        <a class="btn btn-primary float-lg-right col-lg-12 text-center" asp-action="Create">Check In</a>
                     </th>
                 </tr>
             </thead>
@@ -69,6 +75,4 @@
         </table>
     </div>
 </div>
-@*@if (Model.Count() == 0)
-    {
-        <p class="text-center">No Result</p>}*@
+
