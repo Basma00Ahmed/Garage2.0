@@ -18,7 +18,7 @@ namespace Garage2._0.Models.Entities
         [Display(Name = "Vehicle type")]
         public VehicleType VehicleType { get; set; }
 
-        [RegularExpression(@"([a-zA-Z)]{3})([0-9]{3})$", ErrorMessage ="Characters are not allowed.")]
+        [RegularExpression(@"([a-zA-ZäöåÄÖÅ)]{3})([0-9]{3})$", ErrorMessage ="Invalid format ex: ABC123.")]
         [Required]
         [MaxLength(6)]
        // [Remote(action: "VerifyRegNo", controller: "ParkedVehicles")] släckt så länge

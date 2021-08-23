@@ -124,6 +124,7 @@ namespace Garage2._0.Controllers
             {
                 try
                 {
+                    parkedVehicle.RegNo = parkedVehicle.RegNo.ToUpper();
                     _context.Update(parkedVehicle);
                     await _context.SaveChangesAsync();
                 }
