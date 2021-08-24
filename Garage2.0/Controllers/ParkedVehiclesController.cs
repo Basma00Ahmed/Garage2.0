@@ -67,9 +67,9 @@ namespace Garage2._0.Controllers
                 if (!regNoExists)
                 {
                     parkedVehicle.RegNo = parkedVehicle.RegNo.ToUpper();
-                    parkedVehicle.Color = parkedVehicle.Color.Substring(0,1).ToUpper();
-                    parkedVehicle.Make = parkedVehicle.Make.Substring(0, 1).ToUpper();
-                    parkedVehicle.Model = parkedVehicle.Model.Substring(0, 1).ToUpper();
+                    parkedVehicle.Color = parkedVehicle.Color.Substring(0,1).ToUpper() + parkedVehicle.Color.Substring(1);
+                    parkedVehicle.Make = parkedVehicle.Make.Substring(0, 1).ToUpper() + parkedVehicle.Make.Substring(1);
+                    parkedVehicle.Model = parkedVehicle.Model.Substring(0, 1).ToUpper() + parkedVehicle.Model.Substring(1);
                     parkedVehicle.ArrivalTime = System.DateTime.Now;
                     _context.Add(parkedVehicle);
                     await _context.SaveChangesAsync();
