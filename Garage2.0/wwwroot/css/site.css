@@ -10,6 +10,13 @@ for details on configuring this project to bundle and minify static web assets. 
     font-family: "Monaco", "Lucida Console", monospace;
 }
 
+.receipt-barcode{
+    background-image: url("../images/receipt-barcode.png");
+    background-position: center center;
+    background-repeat: repeat-x;
+    height: 50px;
+}
+
 .border-y-dotted {
     border-top: 1px dashed;
     border-bottom: 1px dashed;

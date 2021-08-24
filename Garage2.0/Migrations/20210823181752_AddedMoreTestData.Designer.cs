@@ -4,14 +4,16 @@ using Garage2._0.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Garage2._0.Migrations
 {
     [DbContext(typeof(Garage2_0Context))]
-    partial class Garage2_0ContextModelSnapshot : ModelSnapshot
+    [Migration("20210823181752_AddedMoreTestData")]
+    partial class AddedMoreTestData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

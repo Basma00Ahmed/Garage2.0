@@ -6,47 +6,31 @@
 
 <h1>Check Out</h1>
 
-<h3>Are you sure you want to check out this vehicle?</h3>
+<h3 class="text-info">Are you sure you want to check out this @Html.DisplayFor(model => model.VehicleType)?</h3>
 <div>
-    <h4>Parked Vehicle</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VehicleType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VehicleType)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.RegNo)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RegNo)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Color)
-        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Make)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Make)
         </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Model)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Model)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NoOfWheels)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NoOfWheels)
-        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ArrivalTime)
         </dt>
@@ -58,8 +42,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Check out" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to garage</a>
+        <a asp-action="Index">Back to the Garage</a>
     </form>
-
-    <a class="btn btn-info" asp-controller="Receipt" asp-action="Index" asp-route-id="@Model.Id">Receipt</a>
 </div>
