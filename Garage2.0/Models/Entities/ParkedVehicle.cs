@@ -39,8 +39,7 @@ namespace Garage2._0.Models.Entities
         [RegularExpression(@"[a-zA-Z0-9)]{3,}$", ErrorMessage = "This is not a valid Model")]
         public string Model { get; set; }
 
-        [Range(1,12, ErrorMessage = "Number of wheels must be between 1 and 12")]
-        [DefaultValue(4)]
+        [Range(0,12, ErrorMessage = "Number of wheels must be between 1 and 12")]
         [Display(Name = "Number of wheels")]
         public int NoOfWheels { get; set; }
 

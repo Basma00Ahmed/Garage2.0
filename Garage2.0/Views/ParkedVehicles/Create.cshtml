@@ -6,6 +6,7 @@
 
 <h1>Check In</h1>
 
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -13,9 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VehicleType"  class="control-label"></label>
-                <select asp-for="VehicleType" asp-items="@Html.GetEnumSelectList<VehicleType>()" class="form-control">
-                    <option value="">Select vehicle type</option>
-                </select>
+                <select asp-for="VehicleType" asp-items="@Html.GetEnumSelectList<VehicleType>()" class="form-control"></select>
                 <span asp-validation-for="VehicleType" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="NoOfWheels" class="control-label"></label>
-                <input asp-for="NoOfWheels"  class="form-control" />
+                <input asp-for="NoOfWheels" value="0"  class="form-control" />
                 <span asp-validation-for="NoOfWheels" class="text-danger"></span>
             </div>
             <div class="form-group">

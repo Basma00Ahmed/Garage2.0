@@ -1,12 +1,8 @@
 ﻿using Garage2._0.Data;
-using Garage2._0.Models;
 using Garage2._0.Models.Entities;
 using Garage2._0.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,19 +18,15 @@ namespace Garage2._0.Controllers
         }
 
         // GET: ParkedVehicles
-        public async Task<IActionResult> Index(string Regnum, string drpVehicleTypes)
+        public async Task<IActionResult> Index()
         {
-
-            var model = _context.ParkedVehicle
-                                .Where(vehicle => (string.IsNullOrWhiteSpace(Regnum) || vehicle.RegNo.StartsWith(Regnum)) &&
-                                (string.IsNullOrWhiteSpace(drpVehicleTypes) || vehicle.VehicleType == (VehicleType)Enum.Parse(typeof(VehicleType) ,drpVehicleTypes)))
-                                .Select(vehicle => new IndexViewModel
-                                {
-                                    Id = vehicle.Id,
-                                    VehicleType = vehicle.VehicleType,
-                                    RegNo = vehicle.RegNo,
-                                    ArrivalTime = vehicle.ArrivalTime
-                                });
+            var model = _context.ParkedVehicle.Select(vehicle => new IndexViewModel
+            {
+                Id = vehicle.Id,
+                VehicleType = vehicle.VehicleType,
+                RegNo = vehicle.RegNo,
+                ArrivalTime = vehicle.ArrivalTime
+            });
             return View(await model.ToListAsync());
         }
 
@@ -57,7 +49,6 @@ namespace Garage2._0.Controllers
         }
 
         // GET: ParkedVehicles/Create
-    
         public IActionResult Create()
         {
             return View();
@@ -76,6 +67,9 @@ namespace Garage2._0.Controllers
                 if (!regNoExists)
                 {
                     parkedVehicle.RegNo = parkedVehicle.RegNo.ToUpper();
+                    parkedVehicle.Color = parkedVehicle.Color.Substring(0,1).ToUpper();
+                    parkedVehicle.Make = parkedVehicle.Make.Substring(0, 1).ToUpper();
+                    parkedVehicle.Model = parkedVehicle.Model.Substring(0, 1).ToUpper();
                     parkedVehicle.ArrivalTime = System.DateTime.Now;
                     _context.Add(parkedVehicle);
                     await _context.SaveChangesAsync();
@@ -177,10 +171,9 @@ namespace Garage2._0.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var parkedVehicle = await _context.ParkedVehicle.FindAsync(id);
-            var tempVehicle = parkedVehicle; // This is a temp object to pass into the receipt view.
             _context.ParkedVehicle.Remove(parkedVehicle);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Checkout", tempVehicle); // Action, Controller, Temp object
+            return RedirectToAction(nameof(Index));
         }
 
         private bool ParkedVehicleExists(int id)
