@@ -21,11 +21,16 @@ namespace Garage2._0.Data
 
             modelBuilder.Entity<ParkedVehicle>()
                .HasData(
-                   new ParkedVehicle { Id = 1, VehicleType = VehicleType.Car, RegNo ="ABC123" , Color="Red", Make="BMW" , Model="C5", NoOfWheels=4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 2, VehicleType = VehicleType.Car, RegNo = "EFG124", Color = "White", Make = "Volvo", Model = "Z7", NoOfWheels = 4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 3, VehicleType = VehicleType.Car, RegNo = "GHY125", Color = "Black", Make = "Audi", Model = "M09", NoOfWheels = 4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 4, VehicleType = VehicleType.Car, RegNo = "LKJ126", Color = "Red", Make = "BMW", Model = "FF5", NoOfWheels = 4, ArrivalTime = DateTime.Now },
-                   new ParkedVehicle { Id = 5, VehicleType = VehicleType.Bus, RegNo = "OPR127", Color = "Yellow", Make = "BMW", Model = "C95", NoOfWheels = 12, ArrivalTime = DateTime.Now}
+                   new ParkedVehicle { Id = 1, VehicleType = VehicleType.Car, RegNo ="CAR123" , Color="Gold", Make="BMW" , Model="525i", NoOfWheels=4, ArrivalTime = new DateTime(2021, 8, 20, 8, 0, 0) },
+                   new ParkedVehicle { Id = 2, VehicleType = VehicleType.Car, RegNo = "CAR456", Color = "White", Make = "Volvo", Model = "S90 T5", NoOfWheels = 4, ArrivalTime = new DateTime(2021, 8, 20, 13, 30, 0) },
+                   new ParkedVehicle { Id = 3, VehicleType = VehicleType.Car, RegNo = "CAR789", Color = "Black", Make = "Audi", Model = "RS7", NoOfWheels = 4, ArrivalTime = new DateTime(2021, 8, 20, 20, 0, 0) },
+                   new ParkedVehicle { Id = 4, VehicleType = VehicleType.Bus, RegNo = "BUS123", Color = "Red", Make = "Mercedes-Benz", Model = "Traveller", NoOfWheels = 6, ArrivalTime = new DateTime(2021, 8, 21, 8, 0, 0) },
+                   new ParkedVehicle { Id = 5, VehicleType = VehicleType.Bus, RegNo = "BUS456", Color = "Blue", Make = "Scania", Model = "SL Edition", NoOfWheels = 6, ArrivalTime = new DateTime(2021, 8, 21, 16, 0, 0) },
+                   new ParkedVehicle { Id = 6, VehicleType = VehicleType.Truck, RegNo = "TRU123", Color = "Grey", Make = "DAF", Model = "Long Cruiser", NoOfWheels = 6, ArrivalTime = new DateTime(2021, 8, 22, 8, 0, 0) },
+                   new ParkedVehicle { Id = 7, VehicleType = VehicleType.Truck, RegNo = "TRU456", Color = "Black", Make = "Scania", Model = "Heavy Loader", NoOfWheels = 8, ArrivalTime = new DateTime(2021, 8, 22, 17, 0, 0) },
+                   new ParkedVehicle { Id = 8, VehicleType = VehicleType.Motorcycle, RegNo = "MCL123", Color = "Green", Make = "Yamaha", Model = "F1", NoOfWheels = 2, ArrivalTime = new DateTime(2021, 8, 23, 8, 0, 0) },
+                   new ParkedVehicle { Id = 9, VehicleType = VehicleType.Bicycle, RegNo = "BCL123", Color = "Silver", Make = "BMX", Model = "Biker", NoOfWheels = 2, ArrivalTime = new DateTime(2021, 8, 23, 14, 0, 0) },
+                   new ParkedVehicle { Id = 10, VehicleType = VehicleType.Airplane, RegNo = "AIR123", Color = "White", Make = "Boeing", Model = "Exclusive Air", NoOfWheels = 3, ArrivalTime = new DateTime(2021, 8, 23, 16, 50, 0) }
                );
         }
     }
