@@ -42,7 +42,6 @@ namespace Garage2._0.Models.Entities
         public int NoOfWheels { get; set; }
 
         [Display(Name = "Arrival time")]
-        [DisplayFormat(DataFormatString = "{0:yyy-MM-dd hh:mm:ss}")]
         [DataType(DataType.DateTime)]
         public DateTime ArrivalTime { get; set; }
 
