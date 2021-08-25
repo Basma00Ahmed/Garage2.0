@@ -1,8 +1,10 @@
 ﻿using Garage2._0.Data;
+using Garage2._0.Models;
 using Garage2._0.Models.Entities;
 using Garage2._0.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,15 +20,18 @@ namespace Garage2._0.Controllers
         }
 
         // GET: ParkedVehicles
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Regnum, string drpVehicleTypes)
         {
-            var model = _context.ParkedVehicle.Select(vehicle => new IndexViewModel
-            {
-                Id = vehicle.Id,
-                VehicleType = vehicle.VehicleType,
-                RegNo = vehicle.RegNo,
-                ArrivalTime = vehicle.ArrivalTime
-            });
+            var model = _context.ParkedVehicle
+                                .Where(vehicle => (string.IsNullOrWhiteSpace(Regnum) || vehicle.RegNo.StartsWith(Regnum)) &&
+                                (string.IsNullOrWhiteSpace(drpVehicleTypes) || vehicle.VehicleType == (VehicleType)Enum.Parse(typeof(VehicleType), drpVehicleTypes)))
+                                .Select(vehicle => new IndexViewModel
+                                {
+                                    Id = vehicle.Id,
+                                    VehicleType = vehicle.VehicleType,
+                                    RegNo = vehicle.RegNo,
+                                    ArrivalTime = vehicle.ArrivalTime
+                                });
             return View(await model.ToListAsync());
         }
 
@@ -73,7 +78,7 @@ namespace Garage2._0.Controllers
                     parkedVehicle.ArrivalTime = System.DateTime.Now;
                     _context.Add(parkedVehicle);
                     await _context.SaveChangesAsync();
-                    TempData["Message"] = "Vehicle successfully checked-in";
+                    TempData["Message"] = $"Vehicle with {parkedVehicle.RegNo} has successfully checked-in";
                     return RedirectToAction(nameof(Index));
                 }
                 else
