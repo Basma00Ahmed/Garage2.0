@@ -173,9 +173,10 @@ namespace Garage2._0.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var parkedVehicle = await _context.ParkedVehicle.FindAsync(id);
+            var tempVehicle = parkedVehicle; // This is a temp object to pass into the receipt view.
             _context.ParkedVehicle.Remove(parkedVehicle);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Checkout", tempVehicle); // Action, Controller, Temp object
         }
 
         private bool ParkedVehicleExists(int id)
