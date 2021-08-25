@@ -73,6 +73,7 @@ namespace Garage2._0.Controllers
                     parkedVehicle.ArrivalTime = System.DateTime.Now;
                     _context.Add(parkedVehicle);
                     await _context.SaveChangesAsync();
+                    TempData["Message"] = "Vehicle successfully checked-in";
                     return RedirectToAction(nameof(Index));
                 }
                 else
@@ -142,6 +143,7 @@ namespace Garage2._0.Controllers
                         throw;
                     }
                 }
+                TempData["Message"] = "Vehicles information successfully updated";
                 return RedirectToAction(nameof(Index));
             }
             return View(parkedVehicle);
