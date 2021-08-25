@@ -14,7 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VehicleType"  class="control-label"></label>
-                <select asp-for="VehicleType" asp-items="@Html.GetEnumSelectList<VehicleType>()" class="form-control"></select>
+                <select asp-for="VehicleType" asp-items="@Html.GetEnumSelectList<VehicleType>()" class="form-control">
+                    <option value="">
+                        Select vehicle type
+                    </option>
+                </select>
                 <span asp-validation-for="VehicleType" class="text-danger"></span>
             </div>
             <div class="form-group">
