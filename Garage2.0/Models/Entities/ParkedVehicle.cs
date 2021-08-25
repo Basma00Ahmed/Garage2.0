@@ -31,15 +31,15 @@ namespace Garage2._0.Models.Entities
         public string Color { get; set; }
 
         [Required]
-        [MaxLength(10)]
-        [RegularExpression(@"[a-zA-Z)]{3,}$", ErrorMessage = "This is not a valid Make")]
+        [MaxLength(20)]
+        [RegularExpression(@"[a-zA-Z \s)]{3,}$", ErrorMessage = "This is not a valid Make")]
         public string Make { get; set; }
 
-        [MaxLength(10)]
-        [RegularExpression(@"[a-zA-Z0-9)]{3,}$", ErrorMessage = "This is not a valid Model")]
+        [MaxLength(20)]
+        [RegularExpression(@"[a-zA-Z0-9) \s]{2,}$", ErrorMessage = "This is not a valid Model")]
         public string Model { get; set; }
 
-        [Range(0,12, ErrorMessage = "Number of wheels must be between 1 and 12")]
+        [Range(0,12, ErrorMessage = "Number of wheels must be between 0 and 12")]
         [Display(Name = "Number of wheels")]
         public int NoOfWheels { get; set; }
 
