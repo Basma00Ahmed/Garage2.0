@@ -12,7 +12,15 @@
 </div>
 <br />
 <br />
+@if (@TempData["Message"] != null)
+{
+    <div role="alert" class="alert alert-success alert-dismissible ">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @TempData["Message"]
+    </div>
+}
 <form asp-controller="ParkedVehicles" asp-action="Index" method="Get">
+
     <div class=" row input-group mb-3">
         <div class="col-md-5">
             <input type="text" name="Regnum" class="form-control" placeholder="Search on Registration No" aria-label="Recipient's username" aria-describedby="button-addon2">

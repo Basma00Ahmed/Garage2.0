@@ -3,10 +3,8 @@ using Garage2._0.Models;
 using Garage2._0.Models.Entities;
 using Garage2._0.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,7 +25,7 @@ namespace Garage2._0.Controllers
 
             var model = _context.ParkedVehicle
                                 .Where(vehicle => (string.IsNullOrWhiteSpace(Regnum) || vehicle.RegNo.StartsWith(Regnum)) &&
-                                (string.IsNullOrWhiteSpace(drpVehicleTypes) || vehicle.VehicleType == (VehicleType)Enum.Parse(typeof(VehicleType) ,drpVehicleTypes)))
+                                (string.IsNullOrWhiteSpace(drpVehicleTypes) || vehicle.VehicleType == (VehicleType)Enum.Parse(typeof(VehicleType), drpVehicleTypes)))
                                 .Select(vehicle => new IndexViewModel
                                 {
                                     Id = vehicle.Id,
@@ -57,12 +55,12 @@ namespace Garage2._0.Controllers
         }
 
         // GET: ParkedVehicles/Create
-    
+
         public IActionResult Create()
         {
             return View();
         }
-      
+
         // POST: ParkedVehicles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -79,11 +77,13 @@ namespace Garage2._0.Controllers
                     parkedVehicle.ArrivalTime = System.DateTime.Now;
                     _context.Add(parkedVehicle);
                     await _context.SaveChangesAsync();
+                    TempData["Message"] = "Vehicle successfully checked-in";
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
-                    ModelState.AddModelError("RegNo", "A vehicle with this register Number is already in the garage.");    
+                    ModelState.AddModelError("RegNo", "A vehicle with this register Number is already in the garage.");
+
                 }
             }
             return View(parkedVehicle);
@@ -99,7 +99,7 @@ namespace Garage2._0.Controllers
             }
             return Json(true);
         }
-       
+
 
         // GET: ParkedVehicles/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -148,6 +148,7 @@ namespace Garage2._0.Controllers
                         throw;
                     }
                 }
+                TempData["Message"] = "Vehicle's information successfully updated";
                 return RedirectToAction(nameof(Index));
             }
             return View(parkedVehicle);
@@ -180,6 +181,7 @@ namespace Garage2._0.Controllers
             var tempVehicle = parkedVehicle; // This is a temp object to pass into the receipt view.
             _context.ParkedVehicle.Remove(parkedVehicle);
             await _context.SaveChangesAsync();
+
             return RedirectToAction("Index", "Checkout", tempVehicle); // Action, Controller, Temp object
         }
 
@@ -187,5 +189,6 @@ namespace Garage2._0.Controllers
         {
             return _context.ParkedVehicle.Any(e => e.Id == id);
         }
+
     }
 }

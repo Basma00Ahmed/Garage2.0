@@ -9,16 +9,20 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-lg  bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand  text-light " asp-area="" asp-controller="ParkedVehicles" asp-action="Index">Garage2._0</a>
+
+                <a class="navbar-brand  text-light " asp-area="" asp-controller="ParkedVehicles" asp-action="Index">
+                    <img src="~/images/parking-icon-Header.png" height="36" />
+                    Garage
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse ">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item" >
+                        <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="ParkedVehicles" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
@@ -42,9 +46,8 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap-table/1.10.1/bootstrap-table.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <script src="~/lib/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
