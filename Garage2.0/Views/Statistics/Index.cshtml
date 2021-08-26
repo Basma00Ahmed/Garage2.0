@@ -1,0 +1,54 @@
+﻿@model StatisticsViewModel
+
+<h1>Information</h1>
+
+<h3 class="text-info">Some statistics from the Garage</h3>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.TotalVehicles)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.TotalVehicles)
+
+        @if (Model.VehicleTypes.Count > 0)
+        {
+            <br />
+            <em>@Html.DisplayNameFor(model => model.VehicleTypes)</em>
+            <dl class="row">
+                @foreach (var type in Model.VehicleTypes)
+                {
+                    <dt class="col-sm-2">
+                        @Html.DisplayFor(modelItem => type.Key)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(modelItem => type.Value)
+                    </dd>
+                }
+            </dl>
+        }
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.TotalWheels)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.TotalWheels)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.TotalHrsParked)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.TotalHrsParked)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.AverageHrsParked)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.AverageHrsParked)
+    </dd>
+</dl>
+
+<a asp-controller="ParkedVehicles" asp-action="Index">Back to Garage</a>
+
