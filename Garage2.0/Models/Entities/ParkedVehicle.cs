@@ -24,7 +24,7 @@ namespace Garage2._0.Models.Entities
         [Display(Name = "Registration No")]
         public string RegNo { get; set; }
 
-        [RegularExpression(@"[a-zA-ZäöåÄÖÅ)]{3,}$", ErrorMessage = "This is not a valid color")]
+        [RegularExpression(@"[a-zA-ZäöåÄÖÅ)]{3,}$", ErrorMessage = "This is not a valid Color")]
         [MaxLength(10)]
         public string Color { get; set; }
 
